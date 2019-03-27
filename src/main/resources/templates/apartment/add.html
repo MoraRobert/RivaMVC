@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8" />
+    <title th:text="${title}">Apartments in Dalmatia</title>
+</head>
+<body>
+<h1 th:text="${title}">Alapvetoe (default)</h1>
+
+<form method="post">
+    <input type="text" name="aptName" />
+    <input type="submit" value="Add apartment" />
+</form>
+
+</body>
+</html>

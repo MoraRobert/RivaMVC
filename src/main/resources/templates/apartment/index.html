@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8" />
+    <title th:text="${title}">Apartments in Dalmatia</title>
+</head>
+<body>
+    <h1 th:text="${title}">Vazze</h1>
+
+    <p th:unless="${apartments} and ${apartments.size()}">no apartments</p>
+    <a href="/apartment/add">Add apartment</a>
+    <ul>
+        <li th:each="apartment : ${apartments}" th:text="${apartment}"></li>
+    </ul>
+</body>
+</html>
