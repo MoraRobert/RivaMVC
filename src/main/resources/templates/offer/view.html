@@ -1,0 +1,19 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+<body class="container">
+<h1 th:text="${title}">default title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<ul>
+    <li th:each="apartment : ${apartments}" th:text="${apartment.name}"></li>
+</ul>
+
+<p th:unless="${apartments.size()}"><i>no apartments yet</i></p>
+
+<p><a th:href="'/offer/add-item/' + ${offerId}">Add apartment</a></p>
+
+</body>
+</html>

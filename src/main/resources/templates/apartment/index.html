@@ -1,16 +1,29 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<head>
-    <meta charset="UTF-8" />
-    <title th:text="${title}">Apartments in Dalmatia</title>
-</head>
-<body>
-    <h1 th:text="${title}">Vazze</h1>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
 
-    <p th:unless="${apartments} and ${apartments.size()}">no apartments</p>
-    <a href="/apartment/add">Add apartment</a>
-    <ul>
-        <li th:each="apartment : ${apartments}" th:text="${apartment}"></li>
-    </ul>
+</head>
+<body class="container">
+    <h1>Apartments in Dalmatia</h1>
+
+    <nav th:replace="fragments :: navigation"></nav>
+
+    <p th:unless="${apartments} and ${apartments.size()}">no apartments yet</p>
+
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Category</th>
+        </tr>
+
+        <tr th:each="apartment : ${apartments}">
+            <td th:text="${apartment.name}"></td>
+            <td th:text="${apartment.description}"></td>
+            <td th:text="${apartment.category?.name}"></td>
+        </tr>
+    </table>
+
+
 </body>
 </html>
